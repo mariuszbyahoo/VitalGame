@@ -4,13 +4,13 @@ import org.junit.Test;
 public class BoardTest {
 
     /**
-     * checks is the getBoard() method really returning a new object.
+     * checks is the getCellsArray() method really returning a new object.
      */
     @Test
     public void getBoardTest(){
         //
         Board board = new Board(10);
-        Assert.assertNotNull(board.getBoard());
+        Assert.assertNotNull(board.getCellsArray());
     }
 
     /**
@@ -32,8 +32,8 @@ public class BoardTest {
     public void initBoardTest(){
         boolean isNull = false;
         Board board = new Board(10);
-        for (int i = 0 ; i < board.getBoard().length ; i ++){
-            for (int j = 0 ; j < board.getBoard().length ; j ++){
+        for (int i = 0; i < board.getCellsArray().length ; i ++){
+            for (int j = 0; j < board.getCellsArray().length ; j ++){
                 if (board.getCell(i , j) == null){
                     isNull = true;
                 }
@@ -52,8 +52,8 @@ public class BoardTest {
         int aliveCellsAmount = 0;
         Board board = new Board(10);
         board.createColony();
-        for (int i = 0 ; i < board.getBoard().length ; i ++){
-            for (int j = 0 ; j < board.getBoard().length ; j ++){
+        for (int i = 0; i < board.getCellsArray().length ; i ++){
+            for (int j = 0; j < board.getCellsArray().length ; j ++){
                 if (board.getCell(i , j).getStatus() == Life.ALIVE){
                     isAlive = true;
                     aliveCellsAmount ++;
@@ -66,11 +66,11 @@ public class BoardTest {
     @Test
     public void countAliveNeighboursTest(){
         Board board = new Board(5);
-        board.getBoard()[2][2] = new Cell(Life.ALIVE);
-        board.getBoard()[3][3] = new Cell(Life.ALIVE);
-        board.getBoard()[1][1] = new Cell(Life.ALIVE);
-        board.getBoard()[2][1] = new Cell(Life.ALIVE);
-        board.getBoard()[1][2] = new Cell(Life.ALIVE);
+        board.getCellsArray()[2][2] = new Cell(Life.ALIVE);
+        board.getCellsArray()[3][3] = new Cell(Life.ALIVE);
+        board.getCellsArray()[1][1] = new Cell(Life.ALIVE);
+        board.getCellsArray()[2][1] = new Cell(Life.ALIVE);
+        board.getCellsArray()[1][2] = new Cell(Life.ALIVE);
         Assert.assertEquals(4, board.countAliveNeighbours(2,2));
         Assert.assertEquals(1, board.countAliveNeighbours(0,0));
         Assert.assertEquals(3, board.countAliveNeighbours(2,1));

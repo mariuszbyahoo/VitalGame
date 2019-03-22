@@ -10,6 +10,10 @@ public class Cell {
         setStatus(status);
     }
 
+    /**
+     * Changes the specific cell's status according to the amount of its neighbours
+     * @param neighboursAmount
+     */
     public void changeStatus(int neighboursAmount){
         switch (neighboursAmount){
             case 2:
