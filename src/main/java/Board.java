@@ -56,6 +56,31 @@ public class Board {
     }
 
     /**
+     * Method counts the number of the specific cell's neighbour, which is alive
+     * @param i
+     * @param j
+     * @return
+     */
+    public int countAliveNeighbours(int i, int j){
+        int startX = Math.max(i - 1, 0);
+        int startY = Math.max(j - 1, 0);
+        int endX = Math.min(i + 1, board.length - 1);
+        int endY = Math.min(j + 1, board.length - 1);
+
+        int aliveNeighbours = 0;
+        for (int x = startX ; x <= endX ; x ++){
+            for (int y = startY; y <= endY ; y ++){
+                if (board[x][y].getStatus() == Life.ALIVE){
+                    aliveNeighbours ++;
+                }
+            }
+        }
+        if (board[i][j].getStatus() == Life.ALIVE){
+            aliveNeighbours --;
+        }
+        return aliveNeighbours;
+    }
+    /**
      * returns the object's Cell [] [] array
      * @return
      */
