@@ -17,7 +17,11 @@ public class Cell {
     public void changeStatus(int neighboursAmount){
         switch (neighboursAmount){
             case 2:
-                status = Life.ALIVE;
+                if (status == Life.ALIVE) {
+                    status = Life.ALIVE;
+                } else {
+                    status = Life.DEAD;
+                }
                 break;
             case 3:
                 status = Life.ALIVE;

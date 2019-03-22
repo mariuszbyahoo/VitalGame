@@ -44,9 +44,9 @@ public class Board {
         int middle = cellsArray.length / 2;
         cellsArray[middle][middle].setStatus(Life.ALIVE);
         cellsArray[middle][middle - 1].setStatus(Life.ALIVE);
-        cellsArray[middle][middle + 1].setStatus(Life.ALIVE);
+        cellsArray[middle][middle + 2].setStatus(Life.ALIVE);
         cellsArray[middle - 1][middle].setStatus(Life.ALIVE);
-        cellsArray[middle + 1][middle].setStatus(Life.ALIVE);
+        cellsArray[middle + 2][middle].setStatus(Life.ALIVE);
     }
 
     /**
