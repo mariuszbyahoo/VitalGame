@@ -10,6 +10,20 @@ public class Cell {
         setStatus(status);
     }
 
+    public void changeStatus(int neighboursAmount){
+        switch (neighboursAmount){
+            case 2:
+                status = Life.ALIVE;
+                break;
+            case 3:
+                status = Life.ALIVE;
+                break;
+            default:
+                status = Life.DEAD;
+                break;
+        }
+    }
+
     /**
      * Changes the cell's status
      * @param status
@@ -25,8 +39,6 @@ public class Cell {
     public Life getStatus() {
         return status;
     }
-
-
 
     /**
      * returns the cell's "i" coordinate
