@@ -63,4 +63,16 @@ public class BoardTest {
         Assert.assertTrue(isAlive);
         Assert.assertEquals(5,aliveCellsAmount);
     }
+    @Test
+    public void countAliveNeighboursTest(){
+        Board board = new Board(5);
+        board.getBoard()[2][2] = new Cell(Life.ALIVE);
+        board.getBoard()[3][3] = new Cell(Life.ALIVE);
+        board.getBoard()[1][1] = new Cell(Life.ALIVE);
+        board.getBoard()[2][1] = new Cell(Life.ALIVE);
+        board.getBoard()[1][2] = new Cell(Life.ALIVE);
+        Assert.assertEquals(4, board.countAliveNeighbours(2,2));
+        Assert.assertEquals(1, board.countAliveNeighbours(0,0));
+        Assert.assertEquals(3, board.countAliveNeighbours(2,1));
+    }
 }
