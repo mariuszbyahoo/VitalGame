@@ -13,11 +13,6 @@ public class Board {
         board = new Cell[size][size];
         initBoard();
     }
-
-
-
-    // makes a cross of the cells at the begining
-
     /**
      * creates a new dead cell, and assigns it to every null value in the Board's array
      */
@@ -30,7 +25,6 @@ public class Board {
             }
         }
     }
-
     /**
      * prints the board to the console
      */
@@ -81,13 +75,12 @@ public class Board {
         return aliveNeighbours;
     }
     /**
-     * returns the object's Cell [] [] array
+     * returns the Board's Cell [] [] array
      * @return
      */
     public Cell[][] getBoard() {
         return  board;
     }
-
     /**
      * returns the Cell from the array with a specified location
      * @param i

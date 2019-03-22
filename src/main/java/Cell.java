@@ -5,7 +5,6 @@ public class Cell {
     private Life status;
     private int i;
     private int j;
-    private int neighboursAmount;
 
     public Cell (Life status){
         setStatus(status);
@@ -27,21 +26,7 @@ public class Cell {
         return status;
     }
 
-    /**
-     * returns an amount of the cell's neighbours
-     * @return
-     */
-    public int getNeighboursAmount() {
-        return neighboursAmount;
-    }
 
-    /**
-     * sets an amount of the cell's neighbours
-     * @param neighboursAmount
-     */
-    public void setNeighboursAmount(int neighboursAmount) {
-        this.neighboursAmount = neighboursAmount;
-    }
 
     /**
      * returns the cell's "i" coordinate
