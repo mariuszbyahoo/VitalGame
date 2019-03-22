@@ -7,7 +7,7 @@ public class Board {
     }
 
     public Cell[][] getBoard() {
-        return board;
+        return  board;
     }
 
     public Cell getCell(int i, int j){

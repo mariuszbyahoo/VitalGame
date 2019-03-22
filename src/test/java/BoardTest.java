@@ -2,6 +2,15 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class BoardTest {
+
+    @Test
+    public void getBoardTest(){
+        // checking is the getBoard really returning an Array of Cells
+        Board board = new Board(10);
+        Cell [] [] board2 = new Cell [10][10];
+        Assert.assertEquals(board.getBoard(), board2);
+    }
+
     @Test
     public void initBoardTest(){
         // checking is there any null value in the board
