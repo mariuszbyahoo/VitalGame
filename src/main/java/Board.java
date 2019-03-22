@@ -25,6 +25,8 @@ public class Board {
         for (int i = 0 ; i < board.length ; i ++){
             for (int j = 0 ; j < board.length ; j ++){
                 board[i][j] = new Cell(Life.DEAD);
+                board[i][j].setI(i);
+                board[i][j].setJ(j);
             }
         }
     }
@@ -52,6 +54,7 @@ public class Board {
         board[middle - 1][middle].setStatus(Life.ALIVE);
         board[middle + 1][middle].setStatus(Life.ALIVE);
     }
+
     /**
      * returns the object's Cell [] [] array
      * @return
