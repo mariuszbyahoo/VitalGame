@@ -3,22 +3,35 @@ import org.junit.Test;
 
 public class BoardTest {
 
+    /**
+     * checks is the getBoard() method really returning a new object.
+     */
     @Test
     public void getBoardTest(){
-        // checking is the getBoard really returning an Array of Cells
+        //
         Board board = new Board(10);
-        Cell [] [] board2 = new Cell [10][10];
-        Assert.assertEquals(board.getBoard(), board2);
+        Assert.assertNotNull(board.getBoard());
     }
 
+    /**
+     * checks is the getCell() method really returning a specific cell
+     */
+    @Test
+    public void getCellTest(){
+        Board board = new Board(10);
+        Cell cell = board.getCell(1,1);
+        // assertEquals() przechodzi na zielono tylko gdy porównuje dwa TE SAME obiekty
+        Assert.assertEquals(board.getCell(1,1), cell);
+        Assert.assertNotEquals(board.getCell(2,2), cell);
+    }
 
-
+    /**
+     * checks is there any null value in the board
+     */
     @Test
     public void initBoardTest(){
-        // checking is there any null value in the board
         boolean isNull = false;
         Board board = new Board(10);
-        board.initBoard();
         for (int i = 0 ; i < board.getBoard().length ; i ++){
             for (int j = 0 ; j < board.getBoard().length ; j ++){
                 if (board.getCell(i , j) == null){
@@ -27,5 +40,27 @@ public class BoardTest {
             }
         }
         Assert.assertFalse(isNull);
+    }
+
+    /**
+     * checks is there an any alive Cell in the Board's array
+     * and, is the amount of them equal to 5.
+     */
+    @Test
+    public void createColonyTest(){
+        boolean isAlive = false;
+        int aliveCellsAmount = 0;
+        Board board = new Board(10);
+        board.createColony();
+        for (int i = 0 ; i < board.getBoard().length ; i ++){
+            for (int j = 0 ; j < board.getBoard().length ; j ++){
+                if (board.getCell(i , j).getStatus() == Life.ALIVE){
+                    isAlive = true;
+                    aliveCellsAmount ++;
+                }
+            }
+        }
+        Assert.assertTrue(isAlive);
+        Assert.assertEquals(5,aliveCellsAmount);
     }
 }
