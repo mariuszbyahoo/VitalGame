@@ -11,6 +11,8 @@ public class BoardTest {
         Assert.assertEquals(board.getBoard(), board2);
     }
 
+
+
     @Test
     public void initBoardTest(){
         // checking is there any null value in the board

@@ -4,6 +4,7 @@ public class Board {
 
     public Board(int size) {
         board = new Cell[size][size];
+        initBoard();
     }
 
     public Cell[][] getBoard() {
