@@ -6,6 +6,14 @@ public class Board {
         board = new Cell[size][size];
     }
 
+    public Cell[][] getBoard() {
+        return board;
+    }
+
+    public Cell getCell(int i, int j){
+        return board [i][j];
+    }
+
     // makes a cross of the cells at the begining
     public void initBoard (){
         for (int i = 0 ; i < board.length ; i ++){
