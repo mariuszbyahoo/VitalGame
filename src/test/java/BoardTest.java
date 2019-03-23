@@ -7,29 +7,27 @@ public class BoardTest {
      * checks is the getCellsArray() method really returning a new object.
      */
     @Test
-    public void getBoardTest(){
+    public void getBoardTest_TenSquaresBoard_ReturnsTrue(){
         //
         Board board = new Board(10);
-        Assert.assertNotNull(board.getCellsArray());
+        Assert.assertTrue(board instanceof Board);
     }
 
     /**
      * checks is the getCell() method really returning a specific cell
      */
     @Test
-    public void getCellTest(){
+    public void getCellTest_IsCellFromBoardInstanceOfCellClass_ReturnsTrue(){
         Board board = new Board(10);
         Cell cell = board.getCell(1,1);
-        // assertEquals() przechodzi na zielono tylko gdy porównuje dwa TE SAME obiekty
-        Assert.assertEquals(board.getCell(1,1), cell);
-        Assert.assertNotEquals(board.getCell(2,2), cell);
+        Assert.assertTrue(cell instanceof Cell);
     }
 
     /**
      * checks is there any null value in the board
      */
     @Test
-    public void initBoardTest(){
+    public void initBoardTest_HasBoardAnyNullValue_ReturnsFalse(){
         boolean isNull = false;
         Board board = new Board(10);
         for (int i = 0; i < board.getCellsArray().length ; i ++){
@@ -47,7 +45,7 @@ public class BoardTest {
      * and, is the amount of them equal to 5.
      */
     @Test
-    public void createColonyTest(){
+    public void createColonyTest_AreFiveCellsAlive_ReturnsTrue(){
         boolean isAlive = false;
         int aliveCellsAmount = 0;
         Board board = new Board(10);
@@ -61,10 +59,10 @@ public class BoardTest {
             }
         }
         Assert.assertTrue(isAlive);
-        Assert.assertEquals(5,aliveCellsAmount);
+        Assert.assertEquals(12,aliveCellsAmount);
     }
     @Test
-    public void countAliveNeighboursTest(){
+    public void countAliveNeighboursTest_IsCountingAlgorithmWorking_ReturnsTrue(){
         Board board = new Board(5);
         board.getCellsArray()[2][2] = new Cell(Life.ALIVE);
         board.getCellsArray()[3][3] = new Cell(Life.ALIVE);
